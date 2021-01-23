@@ -1,3 +1,5 @@
+Dir[Rails.root.join('lib', 'rails_admin', '**', '*.rb')].each {|file| require file}
+
 RailsAdmin.config do |config|
   config.included_models = %w[Player]
 
@@ -13,7 +15,7 @@ RailsAdmin.config do |config|
     show_in_app
   end
 
-  config.model Player do
+  config.model 'Player' do
     edit do
       include_all_fields
     end
