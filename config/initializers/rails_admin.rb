@@ -1,7 +1,13 @@
 Dir[Rails.root.join('lib', 'rails_admin', '**', '*.rb')].each {|file| require file}
 
 RailsAdmin.config do |config|
-  config.included_models = %w[Player]
+  config.included_models = %w[Player Admin]
+
+  config.authenticate_with do
+    warden.authenticate! scope: :admin
+  end
+
+  config.current_user_method(&:current_admin)
 
   config.actions do
     dashboard # mandatory
@@ -19,6 +25,15 @@ RailsAdmin.config do |config|
     edit do
       include_all_fields
     end
+    show do
+      include_all_fields
+    end
+    list do
+      include_all_fields
+    end
+  end
+
+  config.model 'Admin' do
     show do
       include_all_fields
     end

@@ -1,6 +1,6 @@
 class CreatePlayers < ActiveRecord::Migration[6.0]
   def change
-    create_table :players_tables do |t|
+    create_table :players do |t|
       t.timestamps
 
       t.integer :ranking, nil: true
