@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
 
   def create
     puts "I am here"
-    puts params
+    puts params.inspect
     Player.create_from_register(params)
   end
 end
