@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
   def create
     ActionController::Parameters.permit_all_parameters = true
     @form_params = params
+    puts @form_params
     Player.create_from_register(@form_params)
   end
 end

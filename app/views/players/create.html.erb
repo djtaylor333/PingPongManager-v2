@@ -44,7 +44,15 @@
   </div>
 </header>
 
-<p>You Have Successfully Registered - <%= @form_params  %></p>
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>You Have Successfully Registered <% @form_params["firstname"] %> <% @form_params["lastname"] %></h2>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- Footer -->
