@@ -5,5 +5,6 @@ class PlayersController < ApplicationController
   end
 
   def create
+    Player.create_from_register(params)
   end
 end
