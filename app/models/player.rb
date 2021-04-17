@@ -10,6 +10,9 @@ class Player < ApplicationRecord
       email: params["email"],
       skill_level: skill_levels[params["experience"]&.downcase]
     )
+  end
 
+  def record
+    return "1-1"
   end
 end

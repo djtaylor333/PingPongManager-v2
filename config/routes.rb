@@ -8,4 +8,18 @@ Rails.application.routes.draw do
 
   get '/register' => 'players#form_create'
   post '/register' => 'players#create'
+
+  get '/view_player_info' => 'players#index'
+  post '/view_player_info' => 'players#search'
+
+  get '/tournaments' => 'tournaments#index'
+  post '/tournaments' => 'tournaments#search'
+
+  get '/scores' => 'scores#index'
+  post '/scores' => 'scores#search'
+  patch '/scores' => 'scores#submit_score'
+
+  get '/historical_matches' => 'matches#index'
+  post '/historical_matches' => 'matches#search'
+
 end
