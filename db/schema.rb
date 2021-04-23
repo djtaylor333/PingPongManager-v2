@@ -50,10 +50,13 @@ ActiveRecord::Schema.define(version: 2021_04_23_232200) do
   end
 
   create_table "tournaments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "type"
+    t.integer "tournament_type"
     t.integer "number_of_players"
     t.integer "winner"
     t.integer "runner_up"
+    t.boolean "active"
+    t.string "name"
+    t.integer "elimination_type"
   end
 
 end

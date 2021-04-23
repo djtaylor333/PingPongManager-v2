@@ -12,6 +12,7 @@ Player.where(first_name: 'Arpan', last_name: 'Chakraborty', email: 'arpan.chakra
 Player.where(first_name: 'Luke', last_name: 'Bockman', email: 'luke.bockman1@hp.com').first_or_create!
 Player.where(first_name: 'Nicholas', last_name: 'Staub', email: 'nicholas.staub@hp.com').first_or_create!
 Player.where(first_name: 'Marwan', last_name: 'elGendy', email: 'marwan.elgendy@hp.com').first_or_create!
+Player.where(first_name: 'Ernest', last_name: 'Sliter', email: 'ernest.sliter@hp.com').first_or_create!
 Player.where(first_name: 'Petar', last_name: 'Obradovic', email: 'petar.obradovic@hp.com').first_or_create!
 Player.where(first_name: 'Nil', last_name: 'Camacho', email: 'nil.camacho.ramonet@hp.com').first_or_create!
 Player.where(first_name: 'Bryce', last_name: 'Tucker', email: 'bryce.tucker@hp.com').first_or_create!
