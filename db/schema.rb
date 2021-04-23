@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_221910) do
+ActiveRecord::Schema.define(version: 2021_04_23_232200) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,6 +40,20 @@ ActiveRecord::Schema.define(version: 2021_04_23_221910) do
     t.string "email"
     t.integer "skill_level", default: 0
     t.boolean "active", default: true
+  end
+
+  create_table "tournament_players", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "tournaments_id"
+    t.bigint "players_id"
+    t.index ["players_id"], name: "index_tournament_players_on_players_id"
+    t.index ["tournaments_id"], name: "index_tournament_players_on_tournaments_id"
+  end
+
+  create_table "tournaments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "type"
+    t.integer "number_of_players"
+    t.integer "winner"
+    t.integer "runner_up"
   end
 
 end

@@ -13,12 +13,12 @@ class PlayersController < ApplicationController
 
   def search
     ActionController::Parameters.permit_all_parameters = true
-    name = params["string"]
+    name = params["string"].downcase
 
     if name.blank?
       @players = Player.all
     else
-      @players = Player.where("first_name = ? OR last_name = ? OR email = ? OR nick_name = ?", name, name, name, name)
+      @players = Player.where("lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(email) LIKE ? OR lower(nick_name) LIKE ?", name, name, name, name).uniq
     end
   end
 end
