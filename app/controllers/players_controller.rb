@@ -14,7 +14,6 @@ class PlayersController < ApplicationController
   def search
     ActionController::Parameters.permit_all_parameters = true
     name = params["string"]
-    puts params
 
     if name.blank?
       @players = Player.all
