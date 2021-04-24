@@ -1,7 +1,7 @@
 Dir[Rails.root.join('lib', 'rails_admin', '**', '*.rb')].each {|file| require file}
 
 RailsAdmin.config do |config|
-  config.included_models = %w[Player Admin]
+  config.included_models = %w[Player Tournament Admin]
 
   config.authenticate_with do
     warden.authenticate! scope: :admin
@@ -22,6 +22,18 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Player' do
+    edit do
+      include_all_fields
+    end
+    show do
+      include_all_fields
+    end
+    list do
+      include_all_fields
+    end
+  end
+
+  config.model 'Tournament' do
     edit do
       include_all_fields
     end
