@@ -24,7 +24,8 @@
       <div class="col-lg-12 mx-auto">
         <h2>View Tournament Info</h2>
         <h3>View active tournament/s below, or search for historical tournaments</h3>
-        <h3>Search for tournaments by name, date or type of match. Click 'Show All' to view all historical tournaments</h3>
+        <h3>Search for tournaments by name, date or type of match. Click 'Show All' to view all historical
+          tournaments</h3>
         <form accept-charset="UTF-8" action="tournaments" method="POST" id='search_tournament'>
           <div class="form-group">
             <label for="exampleInputFirstName">Search String</label>
@@ -33,6 +34,34 @@
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
       </div>
+    </div>
+    <div class="col-lg-36">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Tournament Name</th>
+          <th scope="col">Tournament Date</th>
+          <th scope="col">Number of Players</th>
+          <th scope="col">Active</th>
+          <th scope="col">Winner/s</th>
+          <th scope="col">Runner-Up/s</th>
+          <th scope="col">Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @tournaments.each do |tournament| %>
+          <tr>
+            <td><%= tournament.name %></td>
+            <td><%= tournament.start_time.strftime('%m - %Y') %></td>
+            <td><%= tournament.number_of_players %></td>
+            <td><%= tournament.active %></td>
+            <td><%= tournament.winner_player&.name %></td>
+            <td><%= tournament.runner_up_player&.name %></td>
+            <td><%= tournament.tournament_type_elimination %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>

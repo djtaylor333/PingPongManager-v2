@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_232200) do
+ActiveRecord::Schema.define(version: 2021_04_30_231140) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_232200) do
     t.boolean "active"
     t.string "name"
     t.integer "elimination_type"
+    t.datetime "start_time"
   end
 
 end

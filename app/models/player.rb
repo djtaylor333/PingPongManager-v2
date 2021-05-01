@@ -15,4 +15,8 @@ class Player < ApplicationRecord
   def record
     return "0-0"
   end
+
+  def name
+    nick_name.present? ? "#{first_name} #{last_name} - #{nick_name}" : "#{first_name} #{last_name}"
+  end
 end

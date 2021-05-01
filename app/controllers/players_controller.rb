@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
     name = params["string"].downcase
 
     if name.blank?
-      @players = Player.all
+      @players = Player.all.order(:last_name)
     else
       name = "%#{name}%"
       @players = Player.where("lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(email) LIKE ? OR lower(nick_name) LIKE ?", name, name, name, name).uniq
