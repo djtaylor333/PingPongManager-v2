@@ -32,7 +32,7 @@
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
       </div>
-      <div class="col-lg-10">
+      <div class="col-lg-10" style="white-space: pre-line">
         <h3>Here are the results:</h3>
         <table class="table">
           <thead>
@@ -45,8 +45,13 @@
           </tr>
           </thead>
           <tbody>
-          <% @matches.each do |player| %>
+          <% @matches.each do |match| %>
             <tr>
+              <td><%= match.winner %></td>
+              <td><%= match.loser %></td>
+              <td><%= match.scores_readable %></td>
+              <td><%= match.winner %></td>
+              <td><%= match.type_of_match %></td>
             </tr>
           <% end %>
           </tbody>

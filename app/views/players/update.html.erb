@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>HP Ping Pong Club Portal</title>
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="scrolling-nav.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+<!-- Navigation -->
+<%= render partial: "common/navigation" %>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>You Have Successfully Updated Player <% @player.first_name %> <% @player.last_name %></h2>
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">User Field:</th>
+              <th scope="col">User Info:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>First Name</td>
+              <td><%= @player.first_name %></td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td><%= @player.last_name %></td>
+            </tr>
+            <tr>
+              <td>Nick Name</td>
+              <td><%= @player.nick_name %></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td><%= @player.email %></td>
+            </tr>
+            <tr>
+              <td>Skill Level</td>
+              <td><%= @player.skill_level.capitalize %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">
+      <br>
+      HP Vancouver Ping Pong Club
+    </p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="jquery.min.js"></script>
+<script src="bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="jquery.easing.min.js"></script>
+
+<!-- Custom JavaScript for this theme -->
+<script src="scrolling-nav.js"></script>
+
+</body>
+
+</html>

@@ -16,17 +16,120 @@
 <body id="page-top">
 
 <!-- Navigation -->
-<%= render "navigation" %>
+<%= render partial: "common/navigation" %>
 
+<% if @found %>
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-36">
+          <h2>A Player with that First Name/Last Name or Email information already exists. Below are the changes to be updated</h2>
+          <h2>Click 'Update' if you approve the changes. Click 'Add New' if you want a NEW user with the Updated Info</h2>
+          <div class="col-lg-36">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">User Field:</th>
+                <th scope="col">Existing User Info:</th>
+                <th scope="col">Updated User Info:</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>First Name</td>
+                  <td><%= @player.first_name %></td>
+                  <td><%= @form_params['firstname'] %></td>
+                </tr>
+                <tr>
+                  <td>Last Name</td>
+                  <td><%= @player.last_name %></td>
+                  <td><%= @form_params['lastname'] %></td>
+                </tr>
+                <tr>
+                  <td>Nick Name</td>
+                  <td><%= @player.nick_name %></td>
+                  <td><%= @form_params['nickname'] %></td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td><%= @player.email %></td>
+                  <td><%= @form_params['email'] %></td>
+                </tr>
+                <tr>
+                  <td>Skill Level</td>
+                  <td><%= @player.skill_level.capitalize %></td>
+                  <td><%= @form_params['experience'].capitalize %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <form accept-charset="UTF-8" action="register_update" method="POST" id='register'>
+              <input type="hidden" id="firstname" name='firstname' value=<%= @form_params['firstname'] %>>
+              <input type="hidden" id="lastname" name='lastname'  value=<%= @form_params['lastname'] %>>
+              <input type="hidden" id="nickname" name='nickname' value=<%= @form_params['nickname'] %>>
+              <input type="hidden" id="email" name='email' value=<%= @form_params['email'] %>>
+              <input type="hidden" id="experience" name='experience' value=<%= @form_params['experience'] %>>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+            <br>
+            <form accept-charset="UTF-8" action="register" method="POST" id='register'>
+              <input type="hidden" id="firstname" name='firstname' value=<%= @form_params['firstname'] %>>
+              <input type="hidden" id="lastname" name='lastname'  value=<%= @form_params['lastname'] %>>
+              <input type="hidden" id="nickname" name='nickname' value=<%= @form_params['nickname'] %>>
+              <input type="hidden" id="email" name='email' value=<%= @form_params['email'] %>>
+              <input type="hidden" id="experience" name='experience' value=<%= @form_params['experience'] %>>
+              <input type="hidden" id="check" name='check' value='false'>
+              <button type="submit" class="btn btn-primary">Add New</button>
+            </form>
+            <br>
+              <button class="btn btn-primary" onclick="goBack()">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% else %>
 <section id="about">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2>You Have Successfully Registered <% @form_params["firstname"] %> <% @form_params["lastname"] %></h2>
+        <h2>You Have Successfully Registered <% @player.first_name %> <% @player.last_name %></h2>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">User Field:</th>
+            <th scope="col">User Info:</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>First Name</td>
+            <td><%= @player.first_name %></td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td><%= @player.last_name %></td>
+          </tr>
+          <tr>
+            <td>Nick Name</td>
+            <td><%= @player.nick_name %></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><%= @player.email %></td>
+          </tr>
+          <tr>
+            <td>Skill Level</td>
+            <td><%= @player.skill_level.capitalize %></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </section>
+<% end %>
 
 
 <!-- Footer -->

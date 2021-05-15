@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_30_231140) do
+ActiveRecord::Schema.define(version: 2021_05_14_235746) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,6 +28,32 @@ ActiveRecord::Schema.define(version: 2021_04_30_231140) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "winner_score", null: false
+    t.integer "loser_score", null: false
+    t.integer "winner_id", null: false
+    t.integer "other_winner_id"
+    t.integer "loser_id", null: false
+    t.integer "other_loser_id"
+    t.integer "game_type"
+    t.integer "match_id"
+    t.boolean "official_game", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "winner_id", null: false
+    t.integer "other_winner_id"
+    t.integer "loser_id", null: false
+    t.integer "other_loser_id"
+    t.integer "match_type"
+    t.integer "tournament_id"
+    t.boolean "official_match", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "players", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

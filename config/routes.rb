@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/register' => 'players#form_create'
   post '/register' => 'players#create'
+  post '/register_update' => 'players#update'
 
   get '/view_player_info' => 'players#index'
   post '/view_player_info' => 'players#search'

@@ -6,7 +6,13 @@ class PlayersController < ApplicationController
   def create
     ActionController::Parameters.permit_all_parameters = true
     @form_params = params
-    Player.create_from_register(@form_params)
+    @player, @found = Player.create_from_register(@form_params)
+  end
+
+  def update
+    ActionController::Parameters.permit_all_parameters = true
+    @form_params = params
+    @player = Player.update_player_info(@form_params)
   end
 
   def index; end
