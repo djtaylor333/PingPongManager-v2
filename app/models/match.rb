@@ -8,7 +8,6 @@ class Match < ApplicationRecord
                      other: 6}
 
 
-
   def winner
     Player.where(id: winner_id).first.name
   end
@@ -17,10 +16,14 @@ class Match < ApplicationRecord
     Player.where(id: loser_id).first.name
   end
 
+  def tournament
+    Tournament.find_by(id: self.tournament_id)&.name
+  end
+
   def scores
     scores = []
-    Game.where(match_id: self.id).each do |match|
-      scores << "#{winner}: #{match.winner_score} - #{match.loser_score}"
+    Game.where(match_id: self.id).each do |game|
+      scores << "#{game.winner}: #{game.winner_score} - #{game.loser_score}"
     end
     scores
   end

@@ -43,7 +43,13 @@ class Player < ApplicationRecord
   end
 
   def record
-    return "0-0"
+    win_matches = Match.where(winner_id: self.id)
+    win_matches += Match.where(other_winner_id: self.id)
+    win_count = win_matches.uniq.count
+    lose_matches = Match.where(loser_id: self.id)
+    lose_matches += Match.where(other_loser_id: self.id)
+    lose_count = lose_matches.uniq.count
+    return "#{win_count}-#{lose_count}"
   end
 
   def name
