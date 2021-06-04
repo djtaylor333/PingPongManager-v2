@@ -3945,8 +3945,8 @@ Game.where(winner_id: w.id,
            match_id: m.id,
            game_type: 1).create!
 
-w =Player.find_by(first_name: 'Bryce')
-l = Player.find_by(first_name: 'Bonny')
+w =Player.find_by(first_name: 'Bonny')
+l = Player.find_by(first_name: 'Bryce')
 m = Match.where(winner_id: w.id,
                 loser_id: l.id,
                 tournament_id: t.id,
