@@ -1,5 +1,7 @@
 class CreateMatches < ActiveRecord::Migration[6.0]
   def change
+    unless ActiveRecord::Base.connection.table_exists?(:matches)
+
     create_table :matches, if_exists: true do |t|
       t.integer :winner_id, null: false
       t.integer :other_winner_id, null: true
@@ -11,4 +13,5 @@ class CreateMatches < ActiveRecord::Migration[6.0]
       t.timestamps
     end
   end
+end
 end

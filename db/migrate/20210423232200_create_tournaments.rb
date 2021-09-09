@@ -1,5 +1,7 @@
 class CreateTournaments < ActiveRecord::Migration[6.0]
   def change
+    unless ActiveRecord::Base.connection.table_exists?(:tournaments)
+
     create_table :tournaments, if_exists: true do |t|
       t.integer :tournament_type
       t.integer :number_of_players
@@ -14,5 +16,6 @@ class CreateTournaments < ActiveRecord::Migration[6.0]
       t.references :tournaments
       t.references :players
     end
+  end
   end
 end

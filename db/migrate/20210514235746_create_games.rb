@@ -1,5 +1,7 @@
 class CreateGames < ActiveRecord::Migration[6.0]
   def change
+    unless ActiveRecord::Base.connection.table_exists?(:games)
+
     create_table :games, if_exists: true do |t|
       t.integer :winner_score, null: false
       t.integer :loser_score, null: false
@@ -11,6 +13,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.integer :match_id
       t.boolean :official_game, default: true
       t.timestamps
+    end
     end
   end
 end
