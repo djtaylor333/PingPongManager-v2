@@ -1,5 +1,5 @@
 {
-  "name":"Hp Ping Pong Scripts",
+  "name":"Hp Ping Pong Manager Scripts",
   "scripts": {
     "postdeploy": "bin/deploy"
   }
