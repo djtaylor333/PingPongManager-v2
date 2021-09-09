@@ -1,6 +1,6 @@
 class CreateTournaments < ActiveRecord::Migration[6.0]
   def change
-    create_table :tournaments do |t|
+    create_table :tournaments, if_exists: true do |t|
       t.integer :tournament_type
       t.integer :number_of_players
       t.integer :winner
